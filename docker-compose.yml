@@ -2,8 +2,6 @@ version: '2'
 services:
     wordpress:
         image: wordpress:latest
-        volumes:
-            - ./www:/var/www
         ports:
             - "8080:80"
         links:
