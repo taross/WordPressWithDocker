@@ -15,3 +15,11 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: "password"
             MYSQL_DATABASE: "wordpress"
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        links:
+            - db
+        ports:
+            - 3306:80
+        volumes:
+            - ./phpmyadmin/sessions:/sessions
