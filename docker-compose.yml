@@ -6,6 +6,8 @@ services:
             - "8080:80"
         links:
             - db:mysql
+        volumes:
+            - .html:/var/www/html
         environment:
             WORDPRESS_DB_PASSWORD: "password"
     db:
@@ -17,7 +19,7 @@ services:
             MYSQL_DATABASE: "wordpress"
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
-        links:
+        depends_on:
             - db
         ports:
             - 3306:80
